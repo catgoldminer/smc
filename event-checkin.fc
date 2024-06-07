@@ -1,5 +1,3 @@
-#include "stdlib.fc";
-
 int min_tons_for_storage() asm "50000000 PUSHINT"; ;; 0.05 TON
 int transfer_fee() asm "10000000 PUSHINT"; ;; 0.01 TON
 
@@ -42,7 +40,7 @@ int transfer_fee() asm "10000000 PUSHINT"; ;; 0.01 TON
         var withdraw_msg = begin_cell()
         .store_uint(0x10, 6) ;; nobounce
         .store_slice(sender_address)
-        .store_coins(msg_value - (msg_value * 58) / 100)
+        .store_coins(msg_value - msg_value / 2)
         .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1);
         send_raw_message(withdraw_msg.end_cell(), 1);
 
