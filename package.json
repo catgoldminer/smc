@@ -1,0 +1,6 @@
+{
+  "scripts": {},
+  "dependencies": {
+    "@ton/core": "^0.56.3"
+  }
+}
